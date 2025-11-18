@@ -2,39 +2,62 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Makes the page scale properly on all screens -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="style.css" />
+
     <title>Catch The Insect</title>
+
+    <!-- Load JavaScript file after HTML is parsed -->
     <script src="script.js" defer></script>
   </head>
+
   <body>
+    <!-- SCREEN 1 – START SCREEN -->
     <div class="screen">
       <h1>Catch The Insect</h1>
+
+      <!-- Button to start the game -->
       <button class="btn" id="start-btn">Play Game</button>
+
+      <!-- ADDED sound effect for catching insects -->
+      <audio id="squish-sound" src="squish.mp3"></audio>
     </div>
 
+    <!-- SCREEN 2 – INSECT SELECT -->
     <div class="screen">
       <h1>What is your "favorite" insect?</h1>
+
+      <!-- List of insect options for the player to choose -->
       <ul class="insects-list">
         <li>
+          <!-- Fly option -->
           <button class="choose-insect-btn">
             <p>Fly</p>
             <img src="http://pngimg.com/uploads/fly/fly_PNG3946.png" alt="fly">
           </button>
         </li>
+
         <li>
+          <!-- Mosquito option -->
           <button class="choose-insect-btn">
             <p>Mosquito</p>
             <img src="http://pngimg.com/uploads/mosquito/mosquito_PNG18175.png" alt="mosquito" />
           </button>
         </li>
+
         <li>
+          <!-- Spider option -->
           <button class="choose-insect-btn">
             <p>Spider</p>
             <img src="http://pngimg.com/uploads/spider/spider_PNG12.png" alt="spider" />
           </button>
         </li>
+
         <li>
+          <!-- Roach option -->
           <button class="choose-insect-btn">
             <p>Roach</p>
             <img src="http://pngimg.com/uploads/roach/roach_PNG12163.png" alt="roach" />
@@ -43,9 +66,16 @@
       </ul>
     </div>
 
+    <!-- SCREEN 3 – GAME PLAY -->
     <div class="screen game-container" id="game-container">
+
+      <!-- Timer display -->
       <h3 id="time" class="time">Time: 00:00</h3>
+
+      <!-- Score display -->
       <h3 id="score" class="score">Score: 0</h3>
+
+      <!-- Message that appears after reaching a high score -->
       <h5 id="message" class="message">
         Are you annoyed yet? <br>
         You are playing an impossible game!

@@ -1,90 +1,108 @@
+/* Import font */
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 
+/* Apply box-sizing to all elements so padding doesn't affect width/height */
 * {
   box-sizing: border-box;
 }
 
+/* Main body styling */
 body {
-  background-color: #516dff;
-  color: #fff;
-  font-family: 'Press Start 2P', sans-serif;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
-  text-align: center;
+  background-color: #516dff; /* Blue background */
+  color: #fff; /* White text */
+  font-family: 'Press Start 2P', sans-serif; /* Font */
+  height: 100vh; /* Full screen height */
+  overflow: hidden; /* Prevent scrolling */
+  margin: 0; /* Remove default margins */
+  text-align: center; /* Center all text */
 }
 
+/* General button styles */
 .btn {
   border: 0;
   background-color: #fff;
-  color: #516dff;
+  color: #516dff; /* Blue text */
   padding: 15px 20px;
-  font-family: inherit;
+  font-family: inherit; /* Keep font */
   cursor: pointer;
 }
 
 .btn:hover {
-  opacity: 0.9;
+  opacity: 0.9; /* Slight dim on hover */
 }
 
 .btn:focus {
-  outline: 0;
+  outline: 0; /* Remove default outline */
 }
 
+/* All "screens" (start screen, insect select screen, game screen) */
 .screen {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  transition: margin 0.5s ease-out;
+
+  height: 100vh; /* Full height */
+  width: 100vw; /* Full width */
+
+  transition: margin 0.5s ease-out; /* Smooth slide-up animation */
 }
 
+/* Moves the screen upward when activated */
 .screen.up {
   margin-top: -100vh;
 }
 
+/* Make links white */
 a {
   color: #fff;
 }
 
+/* Header formatting */
 h1 {
   line-height: 1.4;
 }
 
-/* INSECT SELECT SCREEN */
+/* INSECT SELECTION SCREEN */
+
+/* List holding insect choices */
 .insects-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: wrap;              
+  justify-content: center; /* Center button rows */
   list-style-type: none;
   padding: 0;
 }
 
+/* Space between insect selection buttons */
 .insects-list li {
   margin: 10px;
 }
 
+/* Buttons for choosing insects */
 .choose-insect-btn {
   background-color: transparent;
   border: 2px solid #fff;
   color: #fff;
   cursor: pointer;
+
   font-family: inherit;
   width: 150px;
   height: 150px;
 }
 
+/* Hover effect */
 .choose-insect-btn:hover {
   background-color: white;
-  color: #516dff;
+  color: #516dff; /* Flip color on hover */
 }
 
+/* Click effect */
 .choose-insect-btn:active {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
+/* Size of insect images in selection */
 .choose-insect-btn img {
   width: 100px;
   height: 100px;
@@ -92,56 +110,69 @@ h1 {
 }
 
 /* GAME SCREEN */
-.time, .score {
+
+/* Timer & score positioning */
+.time, 
+.score {
   position: absolute;
   top: 20px;
 }
 
 .time {
-  left: 20px;
+  left: 20px; /* Timer on left side */
 }
 
 .score {
-  right: 20px;
+  right: 20px; /* Score on right side */
 }
 
+/* Message that appears after score is high */
 .message {
   line-height: 1.7;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); /* Transparent black bar */
   width: 100%;
   padding: 20px;
   z-index: 100;
+
   text-align: center;
-  opacity: 0;
+  opacity: 0; /* Hidden by default */
+
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%, -150%);
+  transform: translate(-50%, -150%); /* Move above screen initially */
   transition: transform 0.4s ease-in;
 }
 
+/* When message becomes visible */
 .message.visible {
-  transform: translate(-50%, 150%);
+  transform: translate(-50%, 150%); /* Slide down */
   opacity: 1;
 }
+
+/* INSECT BEHAVIOR / APPEARANCE */
 
 .insect {
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 100px;
   height: 100px;
+
   position: absolute;
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out; /* For shrink animation */
 }
 
+/* Actual insect image size */
 .insect img {
   width: 100px;
   height: 100px;
 }
 
+/* When insect is caught (shrinks away) */
 .insect.caught {
   transform: translate(-50%, -50%) scale(0);
 }
